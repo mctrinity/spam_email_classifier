@@ -14,7 +14,11 @@ __pycache__/
 
 # Ignore dataset and model files
 /data/*.csv
-/models/*.pkl
+
+# Ignore model files EXCEPT those needed for deployment
+/models/
+!models/spam_classifier.pkl
+!models/vectorizer.pkl
 
 # Ignore logs and temporary files
 *.log

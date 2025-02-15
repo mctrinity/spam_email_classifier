@@ -10,8 +10,8 @@ spam_email_classifier/
 │   ├── spam.csv              # Raw dataset
 │   ├── spam_processed.csv     # Preprocessed dataset
 │── models/                   # Store trained model
-│   ├── spam_classifier.pkl   # Saved model file
-│   ├── vectorizer.pkl        # TF-IDF Vectorizer
+│   ├── spam_classifier.joblib   # Saved model file (using joblib)
+│   ├── vectorizer.joblib        # TF-IDF Vectorizer (using joblib)
 │── app/                      # Deployment application
 │   ├── main.py               # Script for classification & inference
 │   ├── app.py                # Streamlit app
@@ -53,7 +53,7 @@ This script downloads the dataset, cleans the text, and saves a processed versio
 ```bash
 python train_model.py
 ```
-This script trains a **Naïve Bayes classifier**, evaluates its accuracy, and saves the model and vectorizer for deployment using **pickle**.
+This script trains a **Naïve Bayes classifier**, evaluates its accuracy, and saves the model and vectorizer for deployment using **joblib**.
 
 ### 6️⃣ Test the Model Locally
 To check if the model is working correctly, run:
@@ -79,7 +79,21 @@ We used **Streamlit Community Cloud** for deployment. To deploy:
 Once the app is live, test it by entering email samples:
 - **Spam Example:**
   ```
-  Congratulations! You've won a free gift card. Click the link to claim now!
+  Subject: 🎉 Congratulations! You’re a Lucky Winner!
+  From: "Rewards Department" <rewards@freelottery.com>
+
+  Dear Valued Customer,
+
+  We are excited to inform you that **you have won a $500 Amazon Gift Card** as part of our exclusive customer loyalty program! 🎁
+
+  To claim your prize, simply **click the link below** and fill out the verification form:
+  🔗 [Claim Your Reward Now](http://fraudulent-link.com)
+
+  Hurry! This offer is only valid for the next **24 hours**.
+
+  Best Regards,
+  **The Rewards Team**
+  📧 Contact us at: support@freelottery.com
   ```
   ✅ Expected Output: **Spam**
 
@@ -89,12 +103,27 @@ Once the app is live, test it by entering email samples:
   ```
   ✅ Expected Output: **Not Spam**
 
+## Pickle vs Joblib
+We initially used **pickle** for saving the trained model, but have now switched to **joblib** for better efficiency.
+
+| Feature  | Pickle  | Joblib  |
+|----------|--------|--------|
+| Speed    | Slower for large ML models | Faster for large ML models |
+| Compression | No built-in compression | Supports efficient compression |
+| Performance | Stores everything as a single file | Optimized for NumPy arrays |
+| Best For | General Python object serialization | Large machine learning models |
+
+✅ **Why joblib?**
+- Faster for **large ML models**.
+- Optimized for **NumPy arrays** (like TF-IDF vectors).
+- Supports **compression**, reducing model size.
+
 ## Features
-- ✅ **Preprocessing**: Text cleaning and tokenization
-- ✅ **Machine Learning**: Naïve Bayes classification
-- ✅ **Model Storage**: Model and vectorizer are saved using **pickle**
-- ✅ **Deployment**: Web app (Streamlit Cloud)
-- ✅ **Interactive UI**: Classify emails in real time
+✅ **Preprocessing**: Text cleaning and tokenization  
+✅ **Machine Learning**: Naïve Bayes classification  
+✅ **Model Storage**: Model and vectorizer are saved using **joblib**  
+✅ **Deployment**: Web app (Streamlit Cloud)  
+✅ **Interactive UI**: Classify emails in real time  
 
 ## Next Steps
 - Improve model accuracy with deep learning (e.g., LSTMs, Transformers)

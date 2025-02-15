@@ -1,23 +1,25 @@
-import joblib
+import pickle
 import os
 import streamlit as st
 
 # Load the trained model and vectorizer
-model_path = "models/spam_classifier.joblib"
-vectorizer_path = "models/vectorizer.joblib"
+model_path = "models/spam_classifier.pkl"
+vectorizer_path = "models/vectorizer.pkl"
 
 if not os.path.exists(model_path) or not os.path.exists(vectorizer_path):
     st.error("Model files not found. Please train the model first.")
     st.stop()
 
-# Load model and vectorizer using joblib
-model = joblib.load(model_path)
-vectorizer = joblib.load(vectorizer_path)
+with open(model_path, "rb") as model_file:
+    model = pickle.load(model_file)
+
+with open(vectorizer_path, "rb") as vectorizer_file:
+    vectorizer = pickle.load(vectorizer_file)
 
 
 # Streamlit UI
 def main():
-    st.title("Spam Email Classifier with Joblib")
+    st.title("Spam Email Classifier")
     st.write("Enter an email message to check if it is spam or not.")
 
     user_input = st.text_area("Enter email message:")

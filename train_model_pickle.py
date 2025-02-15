@@ -1,4 +1,4 @@
-import joblib
+import pickle
 import os
 import pandas as pd
 from sklearn.feature_extraction.text import TfidfVectorizer
@@ -42,9 +42,9 @@ model_path = "models/spam_classifier.pkl"
 vectorizer_path = "models/vectorizer.pkl"
 
 with open(model_path, "wb") as model_file:
-    joblib.dump(model, "models/spam_classifier.joblib")
+    pickle.dump(model, model_file)
 
 with open(vectorizer_path, "wb") as vectorizer_file:
-    joblib.dump(vectorizer, "models/vectorizer.joblib")
+    pickle.dump(vectorizer, vectorizer_file)
 
 print(f"Model trained and saved as '{model_path}'")

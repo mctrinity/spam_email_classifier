@@ -17,8 +17,15 @@ __pycache__/
 
 # Ignore model files EXCEPT those needed for deployment
 /models/
-!models/spam_classifier.pkl
-!models/vectorizer.pkl
+# !models/spam_classifier.pkl
+# !models/vectorizer.pkl
+
+# Ignore old model files
+/models/*.pkl
+
+# Keep joblib models
+!models/spam_classifier.joblib
+!models/vectorizer.joblib
 
 # Ignore logs and temporary files
 *.log

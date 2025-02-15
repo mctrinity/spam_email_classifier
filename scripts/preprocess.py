@@ -1,6 +1,11 @@
 import pandas as pd
 import os
 import requests
+import joblib
+from imblearn.over_sampling import SMOTE
+from collections import Counter
+from sklearn.model_selection import train_test_split
+from sklearn.feature_extraction.text import TfidfVectorizer
 
 # Create data directory if not exists
 if not os.path.exists("data"):
@@ -29,12 +34,24 @@ data = pd.read_csv(
     skiprows=1,
 )
 
-data.columns = ["label", "message"]
-
 # Convert labels to binary (ham = 0, spam = 1)
 data["label"] = data["label"].map({"ham": 0, "spam": 1})
 
-# Save processed dataset
-processed_path = "data/spam_processed.csv"
-data.to_csv(processed_path, index=False)
-print(f"Processed dataset saved to {processed_path}")
+# **Apply TF-IDF before SMOTE**
+vectorizer = TfidfVectorizer(max_features=5000)  # Use only top 5000 words to reduce memory usage
+X_tfidf = vectorizer.fit_transform(data["message"])  # Convert text to TF-IDF matrix
+y = data["label"]
+
+# **Apply SMOTE only if necessary**
+if sum(y == 0) > sum(y == 1):  # Apply only if dataset is imbalanced
+    smote = SMOTE(random_state=42)
+    X_resampled, y_resampled = smote.fit_resample(X_tfidf, y)
+    print("✅ Applied SMOTE. Data distribution:", Counter(y_resampled))
+else:
+    X_resampled, y_resampled = X_tfidf, y  # No SMOTE needed if already balanced
+
+# Save processed dataset (Use sparse matrix format to save memory)
+joblib.dump((X_resampled, y_resampled), "data/spam_processed_tfidf.pkl")
+joblib.dump(vectorizer, "models/tfidf_vectorizer.joblib")
+
+print(f"✅ Processed dataset saved successfully!")

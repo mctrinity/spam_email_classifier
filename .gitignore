@@ -14,18 +14,18 @@ __pycache__/
 
 # Ignore dataset and model files
 /data/*.csv
+/data/*.pkl  # Ignore preprocessed dataset files
 
-# Ignore model files EXCEPT those needed for deployment
+# Ignore old or unnecessary model files
 /models/
-# !models/spam_classifier.pkl
-# !models/vectorizer.pkl
+/models/*.pkl  # Ignore pickle models
+/models/*.h5  # Ignore HDF5 models unless needed
+/models/*.onnx  # Ignore ONNX models unless needed
 
-# Ignore old model files
-/models/*.pkl
-
-# Keep joblib models
+# Keep necessary trained models for deployment
 !models/spam_classifier.joblib
-!models/vectorizer.joblib
+!models/tfidf_vectorizer.joblib
+!models/spam_classifier_tfidf.keras  # Ensure TensorFlow model is included
 
 # Ignore logs and temporary files
 *.log
@@ -39,4 +39,3 @@ requirements.txt.lock
 .vscode/
 .idea/
 *.swp
-

@@ -34,17 +34,15 @@ model.fit(X_train_tfidf, y_train)
 # Evaluate model
 y_pred = model.predict(X_test_tfidf)
 accuracy = accuracy_score(y_test, y_pred)
-print(f"Model Accuracy: {accuracy:.4f}")
+print(f"✅ Model Accuracy: {accuracy:.4f}")
 print(classification_report(y_test, y_pred))
 
-# Save model and vectorizer
-model_path = "models/spam_classifier.pkl"
-vectorizer_path = "models/vectorizer.pkl"
+# Save model and vectorizer using joblib (NO pickle references)
+model_path = "models/spam_classifier.joblib"
+vectorizer_path = "models/vectorizer.joblib"
 
-with open(model_path, "wb") as model_file:
-    joblib.dump(model, "models/spam_classifier.joblib")
+joblib.dump(model, model_path)
+joblib.dump(vectorizer, vectorizer_path)
 
-with open(vectorizer_path, "wb") as vectorizer_file:
-    joblib.dump(vectorizer, "models/vectorizer.joblib")
-
-print(f"Model trained and saved as '{model_path}'")
+print(f"✅ Model trained and saved as '{model_path}'")
+print(f"✅ Vectorizer saved as '{vectorizer_path}'")

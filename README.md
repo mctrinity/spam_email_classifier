@@ -53,7 +53,7 @@ This script downloads the dataset, cleans the text, and saves a processed versio
 ```bash
 python train_model.py
 ```
-This script trains a **Naïve Bayes classifier**, evaluates its accuracy, and saves the model and vectorizer for deployment.
+This script trains a **Naïve Bayes classifier**, evaluates its accuracy, and saves the model and vectorizer for deployment using **pickle**.
 
 ### 6️⃣ Test the Model Locally
 To check if the model is working correctly, run:
@@ -92,6 +92,7 @@ Once the app is live, test it by entering email samples:
 ## Features
 ✅ **Preprocessing**: Text cleaning and tokenization
 ✅ **Machine Learning**: Naïve Bayes classification
+✅ **Model Storage**: Model and vectorizer are saved using **pickle**
 ✅ **Deployment**: Web app (Streamlit Cloud)
 ✅ **Interactive UI**: Classify emails in real time
 
@@ -103,3 +104,4 @@ Once the app is live, test it by entering email samples:
 ## Author
 **Maki Dizon**
 [GitHub](https://github.com/YOUR-USERNAME) | [LinkedIn](https://linkedin.com/in/YOUR-PROFILE)
+

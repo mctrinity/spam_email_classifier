@@ -65,8 +65,13 @@ history = model.fit(
 loss, accuracy = model.evaluate(X_test, y_test)
 print(f"✅ Model Accuracy: {accuracy:.4f}")
 
+# Ensure a clean TensorFlow session before saving
+import keras.backend as K
+
+K.clear_session()
+
 # Save Model & Tokenizer
-model.save("models/spam_classifier_lstm.h5")
+model.save("models/spam_classifier_lstm.keras")
 joblib.dump(tokenizer, "models/tokenizer.joblib")
 joblib.dump(label_encoder, "models/label_encoder.joblib")
 

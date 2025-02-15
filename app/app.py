@@ -17,7 +17,7 @@ vectorizer = joblib.load(vectorizer_path)
 
 # Streamlit UI
 def main():
-    st.title("Spam Email Classifier with Joblib")
+    st.title("Spam Email Classifier")
     st.write("Enter an email message to check if it is spam or not.")
 
     user_input = st.text_area("Enter email message:")

@@ -5,6 +5,3 @@ flask
 streamlit
 joblib
 requests
-tensorflow
-keras
-nltk

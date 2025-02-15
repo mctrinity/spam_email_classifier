@@ -3,5 +3,5 @@ numpy
 scikit-learn
 flask
 streamlit
-pickle-mixin
+joblib
 requests

@@ -73,7 +73,7 @@ We used **Streamlit Community Cloud** for deployment. To deploy:
    app/app.py
    ```
 5. Click **"Deploy"**.
-6. Your app will be live at a public URL (e.g., `https://your-app-name.streamlit.app`).
+6. Your app will be live at a public URL (e.g., `https://spamemailclassifier-jnmx74ud2dsdnwbdjzzhuh.streamlit.app/`).
 
 ### **Testing the Deployed App**
 Once the app is live, test it by entering email samples:

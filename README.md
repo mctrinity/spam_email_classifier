@@ -90,11 +90,11 @@ Once the app is live, test it by entering email samples:
   ✅ Expected Output: **Not Spam**
 
 ## Features
-✅ **Preprocessing**: Text cleaning and tokenization
-✅ **Machine Learning**: Naïve Bayes classification
-✅ **Model Storage**: Model and vectorizer are saved using **pickle**
-✅ **Deployment**: Web app (Streamlit Cloud)
-✅ **Interactive UI**: Classify emails in real time
+- ✅ **Preprocessing**: Text cleaning and tokenization
+- ✅ **Machine Learning**: Naïve Bayes classification
+- ✅ **Model Storage**: Model and vectorizer are saved using **pickle**
+- ✅ **Deployment**: Web app (Streamlit Cloud)
+- ✅ **Interactive UI**: Classify emails in real time
 
 ## Next Steps
 - Improve model accuracy with deep learning (e.g., LSTMs, Transformers)

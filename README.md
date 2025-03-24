@@ -5,6 +5,8 @@
 This project is a **Spam Email Classifier** that detects spam messages using **Deep Learning and Natural Language Processing (NLP)**.  
 The project consists of **data preprocessing, model training (LSTM + TF-IDF), and deployment in a web application using Streamlit**.
 
+✅ **Powered by Deep Learning:** Uses an LSTM neural network to process email sequences and classify messages with high accuracy.
+
 ---
 
 ## 🤖 How It Works (Model Training: LSTM + TF-IDF)

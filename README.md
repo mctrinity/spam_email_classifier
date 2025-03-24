@@ -119,6 +119,8 @@ Once deployed, you can test the app by entering email samples.
 
 ### ✅ **Spam Example**
 
+#### **Sample 1**
+
 ```
 Subject: 🎉 Congratulations! You’re a Lucky Winner!
 From: "Rewards Department" <rewards@freelottery.com>
@@ -137,6 +139,30 @@ Best Regards,
 📧 Contact us at: support@freelottery.com
 ```
 
+#### **Sample 2**
+
+```
+Subject: 🎁 You’ve Been Selected to Win a Free iPhone 15!
+
+From: “Apple Rewards Center” <support@apple-rewards-center.com>
+
+Dear Valued Customer,
+
+Congratulations! 🎉 You’ve been **randomly selected** to receive a **brand new iPhone 15** as part of our global product testing program.
+
+To claim your prize:
+✅ Click the secure link below:
+👉 http://free-iphone15-offer.com/claim-now
+
+⚠ Hurry! This exclusive offer expires in the next **3 hours**.
+
+There is **no cost** to you — just confirm your shipping address.
+
+Best regards,
+The Apple Rewards Team
+📞 Customer Support: 1-800-FAKE-NUMBER
+```
+
 💚 **Expected Output:** 🚨 **Spam (Confidence: 99.99%)**
 
 ---
@@ -144,7 +170,25 @@ Best Regards,
 ### ✅ **Ham (Not Spam) Example**
 
 ```
-Hey, let's meet for coffee tomorrow at 10 AM.
+Subject: Meeting Agenda for Tomorrow's Product Review
+
+From: Sarah Bennett <sarah.bennett@yourcompany.com>
+
+Hi Team,
+
+Just a reminder that we have our product review meeting scheduled for **10:00 AM tomorrow** in the main conference room.
+
+Here’s the agenda:
+- Sprint recap
+- Upcoming features
+- Bug prioritization
+- Open discussion
+
+Please review the attached notes beforehand.
+
+Best,
+Sarah
+
 ```
 
 💚 **Expected Output:** ✅ **Not Spam (Confidence: ~0.01%)**

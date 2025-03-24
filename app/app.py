@@ -12,6 +12,9 @@ vectorizer = joblib.load("models/tfidf_vectorizer.joblib")
 def main():
     st.title("📩 Spam Email Classifier (TF-IDF + Deep Learning)")
     st.markdown("**Enter an email message below to check if it's Spam or Not Spam.**")
+    st.info(
+        "⚠️ If the app encounters an error, try refreshing the page (F5 or ⌘+R) and then click the **Clear Cache** button below."
+    )
 
     # 🧹 Clear cache button
     if st.button("🧹 Clear Cache"):

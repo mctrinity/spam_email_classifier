@@ -4,8 +4,10 @@ import numpy as np
 import streamlit as st
 
 # Load the trained model and vectorizer
-model = tf.keras.models.load_model("models/spam_classifier_tfidf.keras")
+# model = tf.keras.models.load_model("models/spam_classifier_tfidf.keras")
+model = tf.keras.models.load_model("models/spam_classifier_tfidf.keras", compile=False)
 vectorizer = joblib.load("models/tfidf_vectorizer.joblib")
+
 
 # Streamlit UI
 def main():
@@ -28,11 +30,13 @@ def main():
             # Display result
             st.subheader(f"Result: {result}")
             confidence = prediction * 100  # Convert to percentage
-            st.write(f"Confidence: {max(confidence, 0.01):.2f}%")  # Ensure at least 0.01%
-
+            st.write(
+                f"Confidence: {max(confidence, 0.01):.2f}%"
+            )  # Ensure at least 0.01%
 
         else:
             st.warning("⚠️ Please enter an email message.")
+
 
 if __name__ == "__main__":
     main()

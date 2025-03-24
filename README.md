@@ -91,6 +91,8 @@ streamlit run app/app.py
 
 This will launch a **Streamlit web app** for email classification.
 
+🧹 **Bonus:** The app also includes a **Clear Cache** button to refresh memory/state — helpful for resolving prediction bugs.
+
 ---
 
 ## 🌟 **Deployment using Streamlit Cloud**

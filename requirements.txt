@@ -8,3 +8,4 @@ requests
 tensorflow
 keras
 nltk
+imbalanced-learn

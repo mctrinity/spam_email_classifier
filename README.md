@@ -7,6 +7,30 @@ The project consists of **data preprocessing, model training (LSTM + TF-IDF), an
 
 ---
 
+## 🤖 How It Works (Model Training: LSTM + TF-IDF)
+
+### 🔤 TF-IDF — _Term Frequency-Inverse Document Frequency_
+
+- Converts email text into a numerical format based on how important each word is.
+- Weighs words that are rare but meaningful higher than common words.
+- Helps the model understand which words carry weight in an email.
+
+📌 Think of TF-IDF as:
+
+> "How rare and meaningful is this word for this email?"
+
+### 🧠 LSTM — _Long Short-Term Memory_
+
+- A type of Recurrent Neural Network (RNN) designed to process sequences (like sentences).
+- Remembers the order and context of words, just like humans do.
+- Helps detect spam phrases like "win a free prize" or "urgent account update."
+
+📌 Think of LSTM as:
+
+> "I read this email like a human — understanding the flow and meaning."
+
+---
+
 ## 📺 Folder Structure
 
 ```
@@ -92,6 +116,8 @@ streamlit run app/app.py
 This will launch a **Streamlit web app** for email classification.
 
 🧹 **Bonus:** The app also includes a **Clear Cache** button to refresh memory/state — helpful for resolving prediction bugs.
+
+💡 **Note:** If you encounter an error, try refreshing the browser (F5) and click the **Clear Cache** button before retrying.
 
 ---
 
@@ -188,7 +214,6 @@ Please review the attached notes beforehand.
 
 Best,
 Sarah
-
 ```
 
 💚 **Expected Output:** ✅ **Not Spam (Confidence: ~0.01%)**

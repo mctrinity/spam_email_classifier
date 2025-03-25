@@ -31,6 +31,8 @@ The project consists of **data preprocessing, model training (LSTM + TF-IDF), an
 
 > "I read this email like a human — understanding the flow and meaning."
 
+Reference: https://www.geeksforgeeks.org/deep-learning-introduction-to-long-short-term-memory/
+
 ---
 
 ## 📺 Folder Structure
